@@ -1,0 +1,44 @@
+
+
+> web@0.1.0 build /home/runner/work/SEO/SEO/apps/web
+> next build
+
+⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+   ▲ Next.js 15.5.2
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · serverActions
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.6s
+
+   We detected TypeScript in your project and reconfigured your tsconfig.json file for you. Strict-mode is set to false by default.
+   The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+   	- include was updated to add '.next/types/**/*.ts'
+
+   Linting and checking validity of types     ✓ Linting and checking validity of types 
+   Collecting page data     ✓ Collecting page data 
+ ✓ Generating static pages (7/7)
+   Collecting build traces     ✓ Collecting build traces 
+   Finalizing page optimization     ✓ Finalizing page optimization 
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      131 B         102 kB
+├ ○ /_not-found                            992 B         103 kB
+├ ƒ /api/health                            131 B         102 kB
+└ ○ /health                                131 B         102 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/801-5de57fc066d61f04.js       45.9 kB
+  ├ chunks/f257f879-aa840aa4d87b8ef6.js  54.2 kB
+  └ other shared chunks (total)           1.9 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
