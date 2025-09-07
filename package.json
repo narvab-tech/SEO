@@ -1,0 +1,17 @@
+{
+  "name": "gsc-intelligence",
+  "version": "1.0.0",
+  "description": "GSC Intelligence - Supabase + Vercel SaaS for marketers",
+  "private": true,
+  "scripts": {
+    "dev": "cd apps/web && npm run dev",
+    "build": "cd apps/web && npm run build",
+    "start": "cd apps/web && npm run start",
+    "lint": "cd apps/web && npm run lint",
+    "test": "cd apps/web && npm run test",
+    "typecheck": "cd apps/web && npm run type-check"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

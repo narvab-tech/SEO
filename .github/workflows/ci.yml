@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        cd apps/web
+        npm ci
+        
+    - name: Lint
+      run: |
+        cd apps/web
+        npm run lint
+        
+    - name: Type check
+      run: |
+        cd apps/web
+        npm run type-check
+        
+    - name: Build
+      run: |
+        cd apps/web
+        npm run build
+      env:
+        NEXT_PUBLIC_SUPABASE_URL: http://localhost:54321
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: dummy-key-for-build
+        SUPABASE_SERVICE_ROLE_KEY: dummy-service-key-for-build
+        CRON_SECRET: dummy-cron-secret-for-build-testing
+        
+    # Future: Add unit tests when we have them
+    # - name: Run tests
+    #   run: |
+    #     cd apps/web
+    #     npm test
