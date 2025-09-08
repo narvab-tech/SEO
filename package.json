@@ -1,15 +1,18 @@
 {
-  "name": "gsc-intelligence",
+  "name": "gsc-intelligence-monorepo",
   "private": true,
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "typecheck": "turbo typecheck",
-    "test": "turbo test"
+    "dev": "dotenv -e .env.local -- turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "prepare": "husky install",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:status": "supabase status"
   },
-  "devDependencies": {
-    "turbo": "^1.10.0"
-  }
+  "lint-staged": { "**/*.{ts,tsx,js,json,md}": ["prettier -w"] }
 }
