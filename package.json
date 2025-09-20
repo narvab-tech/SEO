@@ -5,22 +5,23 @@
   "scripts": {
     "dev": "dotenv -e .env.local -- turbo run dev --parallel",
     "build": "turbo run build",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint --continue",
     "typecheck": "turbo run typecheck",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-    "prepare": "husky install",
+    "prepare": "husky",
     "db:start": "supabase start",
     "db:stop": "supabase stop",
-    "db:status": "supabase status"
+    "db:status": "supabase status",
+    "deploy:check": "./deploy-check.sh"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.12.4",
-    "turbo": "^1.12.4",
-    "prettier": "^3.2.5",
-    "dotenv-cli": "^7.3.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.2"
+    "@turbo/gen": "^2.5.6",
+    "turbo": "^2.5.6",
+    "prettier": "^3.6.2",
+    "dotenv-cli": "^10.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6"
   },
   "lint-staged": { "**/*.{ts,tsx,js,json,md}": ["prettier -w"] }
 }

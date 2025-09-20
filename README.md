@@ -2,6 +2,12 @@
 
 A comprehensive, open-source SEO analysis tool built with Next.js and modern web technologies.
 
+## 🚀 Quick Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/narvab-tech/SEO&project-name=seo-analysis-tool&repository-name=SEO-Analysis-Tool)
+
+**One-click deployment** - Deploy to Vercel in under 3 minutes!
+
 ## Features
 
 - **Website Analysis**: Comprehensive SEO auditing including title tags, meta descriptions, headings, and more
@@ -13,17 +19,18 @@ A comprehensive, open-source SEO analysis tool built with Next.js and modern web
 
 ## Technology Stack
 
-All technologies used are open-source:
+All technologies used are open-source and up-to-date:
 
-- **Frontend**: Next.js 15 with React 19
+- **Frontend**: Next.js 15.5.3 with React 19.1.0
 - **Backend**: Next.js API routes
 - **Database**: PostgreSQL (via Supabase)
-- **UI Framework**: Tailwind CSS
+- **UI Framework**: Tailwind CSS v4
 - **Icons**: Lucide React
 - **SEO Analysis**: Cheerio for HTML parsing
 - **Performance**: Custom performance analysis
-- **Package Manager**: pnpm
-- **Build System**: Turbo (monorepo)
+- **Package Manager**: pnpm (latest)
+- **Build System**: Turbo v2.5.6 (monorepo)
+- **Deployment**: Optimized for Vercel
 
 ## Project Structure
 
@@ -75,9 +82,22 @@ This is a monorepo containing:
 
 ## Development
 
-- **Linting**: `pnpm lint`
-- **Type Checking**: `pnpm typecheck`  
-- **Code Formatting**: `pnpm format`
+### Scripts Available:
+- **Development**: `pnpm dev` - Start development server
+- **Build**: `pnpm build` - Build for production  
+- **Type Check**: `pnpm typecheck` - Run TypeScript checks
+- **Linting**: `pnpm lint --continue` - Run linting (continues on errors)
+- **Formatting**: `pnpm format` - Format code with Prettier
+- **Deploy Check**: `pnpm deploy:check` - Run pre-deployment checks
+
+### Recent Updates (Deployment Ready):
+- ✅ Updated to latest Turbo v2.5.6 for faster builds
+- ✅ Updated to latest dependency versions
+- ✅ Optimized Vercel configuration for production
+- ✅ Added performance optimizations to Next.js config
+- ✅ Fixed Turborepo configuration for v2.x compatibility
+- ✅ Added deployment check script
+- ✅ All builds and type checks passing
 
 ## 🚀 Deployment
 
