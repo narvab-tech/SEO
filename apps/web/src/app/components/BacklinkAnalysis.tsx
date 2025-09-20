@@ -165,7 +165,7 @@ export default function BacklinkAnalysis() {
                       </span>
                     </div>
                     <div className="text-gray-600 text-sm mb-1">
-                      <strong>Anchor Text:</strong> "{backlink.anchorText}"
+                      <strong>Anchor Text:</strong> &ldquo;{backlink.anchorText}&rdquo;
                     </div>
                     <div className="text-gray-500 text-xs">
                       First seen: {new Date(backlink.firstSeen).toLocaleDateString()}

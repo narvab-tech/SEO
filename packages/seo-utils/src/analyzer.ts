@@ -28,7 +28,7 @@ export async function analyzePage(url: string): Promise<SEOAnalysisResult> {
     // Analyze images
     const images = $('img');
     const totalImages = images.length;
-    const imagesWithAlt = images.filter((_, el) => $(el).attr('alt')).length;
+    const imagesWithAlt = images.filter((_, el) => !!$(el).attr('alt')).length;
     
     const imageAnalysis = {
       total: totalImages,
@@ -40,7 +40,7 @@ export async function analyzePage(url: string): Promise<SEOAnalysisResult> {
     const links = $('a[href]');
     const internalLinks = links.filter((_, el) => {
       const href = $(el).attr('href');
-      return href && (href.startsWith('/') || href.includes(new URL(url).hostname));
+      return !!(href && (href.startsWith('/') || href.includes(new URL(url).hostname)));
     }).length;
     
     const totalLinks = links.length;

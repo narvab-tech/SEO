@@ -128,7 +128,7 @@ export async function performTechnicalAudit(url: string, html: string): Promise<
 
   // Check for heading hierarchy
   const headings = $('h1, h2, h3, h4, h5, h6').map((_, el) => ({
-    tag: el.tagName.toLowerCase(),
+    tag: (el as any).tagName?.toLowerCase() || 'unknown',
     text: $(el).text()
   })).get();
 
@@ -200,7 +200,7 @@ export function analyzeMobileReadiness(html: string): TechnicalSEOIssue[] {
   // Check for fixed width elements that might cause horizontal scrolling
   const fixedWidthElements = $('[width], [style*="width"]').filter((_, el) => {
     const width = $(el).attr('width') || $(el).attr('style');
-    return width && /width:\s*\d+px/.test(width || '');
+    return !!(width && /width:\s*\d+px/.test(width || ''));
   });
 
   if (fixedWidthElements.length > 0) {

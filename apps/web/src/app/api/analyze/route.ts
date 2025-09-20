@@ -32,7 +32,7 @@ interface PerformanceResult {
 }
 
 // Mock data for demonstration when fetch fails
-function getMockAnalysis(url: string): SEOAnalysisResult {
+function getMockAnalysis(_url: string): SEOAnalysisResult {
   return {
     title: "Example Website - Your Gateway to Quality Content",
     metaDescription: "Welcome to Example.com, your premier destination for quality content, resources, and information. Discover what makes us unique.",
