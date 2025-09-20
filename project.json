@@ -1,0 +1,8 @@
+{
+  "name": "seo-tool",
+  "settings": {
+    "buildCommand": "pnpm turbo build --filter=seo-tool-web",
+    "framework": "nextjs",
+    "rootDirectory": "apps/web"
+  }
+}

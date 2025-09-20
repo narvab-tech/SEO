@@ -93,3 +93,15 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Turbo build logs
+.turbo/
+
+# Vercel
+.vercel
+
+# Environment files
+.env*.local
+
+# Supabase local
+supabase/.env

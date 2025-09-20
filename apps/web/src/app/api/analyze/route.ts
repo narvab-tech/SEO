@@ -32,7 +32,7 @@ interface PerformanceResult {
 }
 
 // Mock data for demonstration when fetch fails
-function getMockAnalysis(url: string): SEOAnalysisResult {
+function getMockAnalysis(): SEOAnalysisResult {
   return {
     title: "Example Website - Your Gateway to Quality Content",
     metaDescription: "Welcome to Example.com, your premier destination for quality content, resources, and information. Discover what makes us unique.",
@@ -271,7 +271,7 @@ export async function POST(request: NextRequest) {
       console.log('Real analysis failed, using mock data:', error);
       
       // Fallback to mock data for demonstration
-      analysis = getMockAnalysis(url);
+      analysis = getMockAnalysis();
       performance = getMockPerformance();
       
       // Add a note that this is demo data
