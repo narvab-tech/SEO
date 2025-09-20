@@ -1,32 +1,0 @@
-
-> seo-tool-web@0.1.0 build /home/runner/work/SEO/SEO/apps/web
-> next build
-
-   ▲ Next.js 15.5.3
-
-   Creating an optimized production build ...
- ✓ Compiled successfully in 3.5s
-
-./src/app/api/analyze/route.ts
-35:26  Warning: '_url' is defined but never used.  @typescript-eslint/no-unused-vars
-
-info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
-   Linting and checking validity of types     ✓ Linting and checking validity of types 
-   Collecting page data     ✓ Collecting page data 
- ✓ Generating static pages (6/6)
-   Collecting build traces     ✓ Collecting build traces 
-   Finalizing page optimization     ✓ Finalizing page optimization 
-
-Route (app)                                 Size  First Load JS
-┌ ○ /                                    4.79 kB         106 kB
-├ ○ /_not-found                            989 B         102 kB
-└ ƒ /api/analyze                           123 B         101 kB
-+ First Load JS shared by all             101 kB
-  ├ chunks/4ffbce5d-ad10b6f9145f9730.js  54.2 kB
-  ├ chunks/648-bae635856d0f0f32.js         45 kB
-  └ other shared chunks (total)           1.9 kB
-
-
-○  (Static)   prerendered as static content
-ƒ  (Dynamic)  server-rendered on demand
-
