@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Search, BarChart3, Globe, Zap, AlertCircle, CheckCircle } from 'lucide-react';
+import KeywordResearch from './KeywordResearch';
+import BacklinkAnalysis from './BacklinkAnalysis';
 
 interface AnalysisResult {
   title: string;
@@ -34,6 +36,7 @@ interface PerformanceResult {
 }
 
 export default function AnalysisDashboard() {
+  const [activeTab, setActiveTab] = useState('website');
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
@@ -83,38 +86,67 @@ export default function AnalysisDashboard() {
     return <AlertCircle className="w-5 h-5 text-red-600" />;
   };
 
+  const tabs = [
+    { id: 'website', label: 'Website Analysis', icon: Globe },
+    { id: 'keywords', label: 'Keyword Research', icon: Search },
+    { id: 'backlinks', label: 'Backlink Analysis', icon: BarChart3 }
+  ];
+
   return (
     <div className="max-w-6xl mx-auto space-y-8">
-      {/* URL Input Section */}
+      {/* Tab Navigation */}
       <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex items-center space-x-4">
-          <div className="flex-1">
-            <input
-              type="url"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              placeholder="Enter website URL (e.g., https://example.com)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
-          <button
-            onClick={analyzeWebsite}
-            disabled={loading}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
-          >
-            <Search className="w-5 h-5" />
-            <span>{loading ? 'Analyzing...' : 'Analyze'}</span>
-          </button>
+        <div className="flex space-x-1 mb-6">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center space-x-2 px-4 py-3 rounded-lg transition-colors ${
+                activeTab === tab.id
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              <tab.icon className="w-5 h-5" />
+              <span className="font-medium">{tab.label}</span>
+            </button>
+          ))}
         </div>
-        {error && (
-          <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-            {error}
-          </div>
+
+        {/* Website Analysis Tab */}
+        {activeTab === 'website' && (
+          <>
+            <div className="flex items-center space-x-4 mb-6">
+              <div className="flex-1">
+                <input
+                  type="url"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  placeholder="Enter website URL (e.g., https://example.com)"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+              <button
+                onClick={analyzeWebsite}
+                disabled={loading}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
+              >
+                <Search className="w-5 h-5" />
+                <span>{loading ? 'Analyzing...' : 'Analyze'}</span>
+              </button>
+            </div>
+            
+            {error && (
+              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                {error}
+              </div>
+            )}
+          </>
         )}
       </div>
 
-      {/* Results Section */}
-      {analysisResult && (
+      {/* Tab Content */}
+      {activeTab === 'website' && analysisResult && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* SEO Analysis Card */}
           <div className="bg-white rounded-lg shadow-md p-6">
@@ -225,7 +257,7 @@ export default function AnalysisDashboard() {
       )}
 
       {/* Recommendations */}
-      {analysisResult && analysisResult.recommendations.length > 0 && (
+      {activeTab === 'website' && analysisResult && analysisResult.recommendations.length > 0 && (
         <div className="bg-white rounded-lg shadow-md p-6">
           <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
             <BarChart3 className="w-6 h-6 mr-2 text-orange-600" />
@@ -241,6 +273,10 @@ export default function AnalysisDashboard() {
           </div>
         </div>
       )}
+
+      {/* Other Tab Content */}
+      {activeTab === 'keywords' && <KeywordResearch />}
+      {activeTab === 'backlinks' && <BacklinkAnalysis />}
     </div>
   );
 }
