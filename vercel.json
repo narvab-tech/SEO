@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm build --filter=seo-tool-web",
+  "buildCommand": "pnpm turbo build --filter=seo-tool-web",
   "outputDirectory": "apps/web/.next",
-  "installCommand": "pnpm install",
+  "installCommand": "pnpm install --frozen-lockfile",
   "framework": null,
   "functions": {
     "apps/web/src/app/api/analyze/route.ts": {
@@ -20,5 +20,6 @@
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
     "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
     "NEXT_PUBLIC_API_BASE_URL": "@api_base_url"
-  }
+  },
+  "crons": []
 }
