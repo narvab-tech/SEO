@@ -99,6 +99,20 @@ This is a monorepo containing:
 - ✅ Added deployment check script
 - ✅ All builds and type checks passing
 
+## 🚀 Deployment
+
+### Deploy to Vercel (Recommended)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnarvab-tech%2FSEO)
+
+The application is fully configured for Vercel deployment with:
+- Pre-configured build settings
+- Demo mode functionality (works without external APIs)
+- Optimized monorepo setup
+- Production-ready configuration
+
+For detailed deployment instructions, see [VERCEL_DEPLOY.md](VERCEL_DEPLOY.md)
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
