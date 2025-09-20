@@ -1,0 +1,25 @@
+{
+  "name": "@seo-tool/seo-utils",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "lighthouse": "^10.4.0",
+    "axios": "^1.6.7",
+    "url": "^0.11.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/cheerio": "^0.22.35",
+    "typescript": "^5",
+    "eslint": "^9"
+  }
+}
